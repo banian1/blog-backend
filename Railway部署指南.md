@@ -2,7 +2,7 @@
 
 ## 准备工作
 
-1. 注册 Railway 账号：https://railway.app
+1. 注册 Railway 账号：https://ra    ilway.app
 2. 安装 Railway CLI：
 ```powershell
 npm install -g @railway/cli
