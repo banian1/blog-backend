@@ -79,4 +79,15 @@ public class ArticleController {
         result.put("message", "删除成功");
         return ResponseEntity.ok(result);
     }
+
+    @GetMapping("/search/{title}")
+    public ResponseEntity<Map<String, Object>> searchArticles(@PathVariable String title) {
+        log.info("try to search article by title: {}", title);
+        Article articles = articleService.findArticleByTitle(title);
+        log.info("found article: {}", articles);
+        Map<String, Object> result = new HashMap<>();
+        result.put("code", 200);
+        result.put("data", articles);
+        return ResponseEntity.ok(result);
+    }
 }

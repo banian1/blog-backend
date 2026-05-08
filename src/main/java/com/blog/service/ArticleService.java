@@ -22,6 +22,10 @@ public class ArticleService {
         return articleMapper.findById(id);
     }
 
+    public Article findArticleByTitle(String title) {
+        return articleMapper.findByTitle(title);
+    }
+
     public Article createArticle(Article article) {
         article.setCreateTime(LocalDateTime.now());
         article.setUpdateTime(LocalDateTime.now());
