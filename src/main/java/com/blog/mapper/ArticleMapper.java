@@ -15,6 +15,9 @@ public interface ArticleMapper {
         @Select("SELECT * FROM article WHERE id = #{id}")
         Article findById(Long id);
 
+        @Select("SELECT * FROM article WHERE title = #{title}")
+        Article findByTitle(String title);
+
         @Insert("INSERT INTO article(title, content, author, category, create_time, update_time) " +
                         "VALUES(#{title}, #{content}, #{author}, #{category}, #{createTime}, #{updateTime})")
         @Options(useGeneratedKeys = true, keyProperty = "id")
@@ -29,4 +32,5 @@ public interface ArticleMapper {
 
         @Select("SELECT COUNT(*) FROM article")
         long count();
+
 }

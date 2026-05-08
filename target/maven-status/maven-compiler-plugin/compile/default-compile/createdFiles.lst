@@ -1,5 +1,0 @@
-com\blog\BlogApplication.class
-com\blog\service\ArticleService.class
-com\blog\mapper\ArticleMapper.class
-com\blog\controller\ArticleController.class
-com\blog\entity\Article.class

@@ -34,6 +34,7 @@ mvn spring-boot:run
 |-----|------|-----|
 | GET | /api/articles | 获取文章列表 |
 | GET | /api/articles/{id} | 获取文章详情 |
+| GET ||
 | POST | /api/articles | 创建文章 |
 | PUT | /api/articles/{id} | 更新文章 |
 | DELETE | /api/articles/{id} | 删除文章 |
