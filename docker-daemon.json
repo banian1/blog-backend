@@ -1,0 +1,14 @@
+{
+  "registry-mirrors": [
+    "https://docker.nju.edu.cn",
+    "https://mirror.aliyun.com",
+    "https://dockerhub.azk8s.cn",
+    "https://ccr.ccs.tencentyun.com"
+  ],
+  "insecure-registries": [],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "3"
+  }
+}
