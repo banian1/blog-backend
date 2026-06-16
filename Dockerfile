@@ -1,5 +1,5 @@
-# 第一阶段：构建
-FROM maven:3.9-openjdk-21-slim AS builder
+# 第一阶段：构建（使用包含 Maven 和 JDK 的 Temurin 镜像）
+FROM eclipse-temurin:21-jdk-alpine AS builder
 
 WORKDIR /app
 
@@ -10,8 +10,8 @@ COPY src ./src
 # 构建项目
 RUN mvn clean package -DskipTests
 
-# 第二阶段：运行
-FROM openjdk:21-jdk-slim
+# 第二阶段：运行（使用 JRE 精简版）
+FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /app
 
