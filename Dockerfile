@@ -1,5 +1,5 @@
 # 第一阶段：构建
-FROM maven:3.9-eclipse-temurin-21 AS builder
+FROM maven:3.9-openjdk-21-slim AS builder
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # 第二阶段：运行
-FROM eclipse-temurin:21-jre-focal
+FROM openjdk:21-jdk-slim
 
 WORKDIR /app
 
