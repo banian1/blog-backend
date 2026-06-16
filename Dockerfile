@@ -11,7 +11,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # 第二阶段：运行
-FROM eclipse-temurin:21-jre-jammy
+FROM eclipse-temurin:21-jre-focal
 
 WORKDIR /app
 
