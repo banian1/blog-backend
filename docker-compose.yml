@@ -11,13 +11,10 @@ services:
       MYSQL_USER: blog_user
       MYSQL_PASSWORD: blog_password123
       MYSQL_INITDB_ARGS: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    ports:
-      - "3306:3306"
     volumes:
       - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
       - mysql_data:/var/lib/mysql
-    networks:
-      - blog-network
+    network_mode: host
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 20s
@@ -34,24 +31,17 @@ services:
       mysql:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/blog_db?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8
+      SPRING_DATASOURCE_URL: jdbc:mysql://127.0.0.1:3306/blog_db?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8
       SPRING_DATASOURCE_USERNAME: blog_user
       SPRING_DATASOURCE_PASSWORD: blog_password123
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
       SPRING_JPA_SHOW_SQL: "false"
       SERVER_PORT: 8080
-    ports:
-      - "8080:8080"
     volumes:
       - ./logs:/app/logs
-    networks:
-      - blog-network
+    network_mode: host
     restart: unless-stopped
-
-networks:
-  blog-network:
-    driver: bridge
 
 volumes:
   mysql_data:
