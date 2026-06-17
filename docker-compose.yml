@@ -31,7 +31,7 @@ services:
       mysql:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://127.0.0.1:3306/blog_db?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8
+      SPRING_DATASOURCE_URL: jdbc:mysql://127.0.0.1:3306/blog_db?useSSL=false&serverTimezone=UTC&characterEncoding=utf-8&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: blog_user
       SPRING_DATASOURCE_PASSWORD: blog_password123
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
