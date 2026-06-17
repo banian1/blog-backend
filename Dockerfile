@@ -1,5 +1,5 @@
-# 第一阶段：构建（使用包含 Maven 和 JDK 的 Temurin 镜像）
-FROM eclipse-temurin:21-jdk-alpine AS builder
+# 第一阶段：构建（使用包含 Maven 和 JDK 的镜像）
+FROM maven:3.9-eclipse-temurin-21-alpine AS builder
 
 WORKDIR /app
 
